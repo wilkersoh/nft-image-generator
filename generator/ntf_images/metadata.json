@@ -1,0 +1,486 @@
+{
+  "0": {
+    "name": "undefined#0",
+    "image": 0,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-1" },
+      { "trait_type": "Glasses", "value": "glasses-2" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "1": {
+    "name": "undefined#1",
+    "image": 1,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-2" },
+      { "trait_type": "Glasses", "value": "glasses-1" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "2": {
+    "name": "undefined#2",
+    "image": 2,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-3" },
+      { "trait_type": "Glasses", "value": "glasses-04" },
+      { "trait_type": "Hat", "value": "hat-01" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "3": {
+    "name": "undefined#3",
+    "image": 3,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-1" },
+      { "trait_type": "Glasses", "value": "glasses-04" },
+      { "trait_type": "Hat", "value": "hat-002" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "4": {
+    "name": "undefined#4",
+    "image": 4,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-2" },
+      { "trait_type": "Glasses", "value": "glasses-04" },
+      { "trait_type": "Hat", "value": "hat-03" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "5": {
+    "name": "undefined#5",
+    "image": 5,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-1" },
+      { "trait_type": "Glasses", "value": "glasses-2" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "6": {
+    "name": "undefined#6",
+    "image": 6,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-2" },
+      { "trait_type": "Glasses", "value": "glasses-2" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "7": {
+    "name": "undefined#7",
+    "image": 7,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-1" },
+      { "trait_type": "Glasses", "value": "glasses-04" },
+      { "trait_type": "Hat", "value": "hat-002" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "8": {
+    "name": "undefined#8",
+    "image": 8,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-1" },
+      { "trait_type": "Glasses", "value": "glasses-1" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "9": {
+    "name": "undefined#9",
+    "image": 9,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-1" },
+      { "trait_type": "Glasses", "value": "glasses-1" },
+      { "trait_type": "Hat", "value": "hat-002" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "10": {
+    "name": "undefined#10",
+    "image": 10,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-2" },
+      { "trait_type": "Glasses", "value": "glasses-3" },
+      { "trait_type": "Hat", "value": "hat-03" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "11": {
+    "name": "undefined#11",
+    "image": 11,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-2" },
+      { "trait_type": "Glasses", "value": "glasses-04" },
+      { "trait_type": "Hat", "value": "hat-002" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "12": {
+    "name": "undefined#12",
+    "image": 12,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-1" },
+      { "trait_type": "Glasses", "value": "glasses-3" },
+      { "trait_type": "Hat", "value": "hat-01" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "13": {
+    "name": "undefined#13",
+    "image": 13,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-3" },
+      { "trait_type": "Glasses", "value": "glasses-2" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "14": {
+    "name": "undefined#14",
+    "image": 14,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-1" },
+      { "trait_type": "Glasses", "value": "glasses-1" },
+      { "trait_type": "Hat", "value": "hat-01" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "15": {
+    "name": "undefined#15",
+    "image": 15,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-2" },
+      { "trait_type": "Glasses", "value": "glasses-1" },
+      { "trait_type": "Hat", "value": "hat-03" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "16": {
+    "name": "undefined#16",
+    "image": 16,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-1" },
+      { "trait_type": "Glasses", "value": "glasses-04" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "17": {
+    "name": "undefined#17",
+    "image": 17,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-2" },
+      { "trait_type": "Glasses", "value": "glasses-04" },
+      { "trait_type": "Hat", "value": "hat-01" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "18": {
+    "name": "undefined#18",
+    "image": 18,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-2" },
+      { "trait_type": "Glasses", "value": "glasses-2" },
+      { "trait_type": "Hat", "value": "hat-01" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "19": {
+    "name": "undefined#19",
+    "image": 19,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-2" },
+      { "trait_type": "Glasses", "value": "glasses-2" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "20": {
+    "name": "undefined#20",
+    "image": 20,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-2" },
+      { "trait_type": "Glasses", "value": "glasses-1" },
+      { "trait_type": "Hat", "value": "hat-01" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "21": {
+    "name": "undefined#21",
+    "image": 21,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-2" },
+      { "trait_type": "Glasses", "value": "glasses-3" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "22": {
+    "name": "undefined#22",
+    "image": 22,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-1" },
+      { "trait_type": "Glasses", "value": "glasses-3" },
+      { "trait_type": "Hat", "value": "hat-03" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "23": {
+    "name": "undefined#23",
+    "image": 23,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-2" },
+      { "trait_type": "Glasses", "value": "glasses-04" },
+      { "trait_type": "Hat", "value": "hat-002" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "24": {
+    "name": "undefined#24",
+    "image": 24,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-1" },
+      { "trait_type": "Glasses", "value": "glasses-04" },
+      { "trait_type": "Hat", "value": "hat-01" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "25": {
+    "name": "undefined#25",
+    "image": 25,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-3" },
+      { "trait_type": "Glasses", "value": "glasses-1" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "26": {
+    "name": "undefined#26",
+    "image": 26,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-3" },
+      { "trait_type": "Glasses", "value": "glasses-04" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "27": {
+    "name": "undefined#27",
+    "image": 27,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-2" },
+      { "trait_type": "Glasses", "value": "glasses-3" },
+      { "trait_type": "Hat", "value": "hat-03" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "28": {
+    "name": "undefined#28",
+    "image": 28,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-1" },
+      { "trait_type": "Glasses", "value": "glasses-2" },
+      { "trait_type": "Hat", "value": "hat-002" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "29": {
+    "name": "undefined#29",
+    "image": 29,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-1" },
+      { "trait_type": "Glasses", "value": "glasses-1" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "30": {
+    "name": "undefined#30",
+    "image": 30,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-2" },
+      { "trait_type": "Glasses", "value": "glasses-1" },
+      { "trait_type": "Hat", "value": "hat-002" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "31": {
+    "name": "undefined#31",
+    "image": 31,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-1" },
+      { "trait_type": "Glasses", "value": "glasses-04" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "32": {
+    "name": "undefined#32",
+    "image": 32,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-3" },
+      { "trait_type": "Glasses", "value": "glasses-3" },
+      { "trait_type": "Hat", "value": "hat-01" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "33": {
+    "name": "undefined#33",
+    "image": 33,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-2" },
+      { "trait_type": "Glasses", "value": "glasses-3" },
+      { "trait_type": "Hat", "value": "hat-01" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "34": {
+    "name": "undefined#34",
+    "image": 34,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-2" },
+      { "trait_type": "Glasses", "value": "glasses-1" },
+      { "trait_type": "Hat", "value": "hat-002" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "35": {
+    "name": "undefined#35",
+    "image": 35,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-1" },
+      { "trait_type": "Glasses", "value": "glasses-2" },
+      { "trait_type": "Hat", "value": "hat-01" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "36": {
+    "name": "undefined#36",
+    "image": 36,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-1" },
+      { "trait_type": "Glasses", "value": "glasses-3" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "37": {
+    "name": "undefined#37",
+    "image": 37,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-3" },
+      { "trait_type": "Glasses", "value": "glasses-3" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "38": {
+    "name": "undefined#38",
+    "image": 38,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-3" },
+      { "trait_type": "Glasses", "value": "glasses-1" },
+      { "trait_type": "Hat", "value": "hat-002" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "39": {
+    "name": "undefined#39",
+    "image": 39,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-2" },
+      { "trait_type": "Glasses", "value": "glasses-1" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "40": {
+    "name": "undefined#40",
+    "image": 40,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-1" },
+      { "trait_type": "Glasses", "value": "glasses-2" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-005" }
+    ]
+  },
+  "41": {
+    "name": "undefined#41",
+    "image": 41,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-2" },
+      { "trait_type": "Glasses", "value": "glasses-04" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "42": {
+    "name": "undefined#42",
+    "image": 42,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "greenface-2" },
+      { "trait_type": "Glasses", "value": "glasses-3" },
+      { "trait_type": "Hat", "value": "hat-002" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  },
+  "43": {
+    "name": "undefined#43",
+    "image": 43,
+    "attributes": [
+      { "trait_type": "Background", "value": "background" },
+      { "trait_type": "Face", "value": "blackface-2" },
+      { "trait_type": "Glasses", "value": "glasses-04" },
+      { "trait_type": "Hat", "value": "hat-04" },
+      { "trait_type": "Mask", "value": "mask-05" }
+    ]
+  }
+}

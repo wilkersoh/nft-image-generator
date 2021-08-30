@@ -1,0 +1,23 @@
+{
+  "name": "generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "restart": "rm -rf ntf_images"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "boxen": "^5.0.1",
+    "canvas": "^2.8.0",
+    "chalk": "^4.1.2",
+    "image-data-uri": "^2.0.1",
+    "inquirer": "^8.1.2",
+    "merge-images": "^2.0.0",
+    "minimist": "^1.2.5",
+    "ora": "^5.4.1"
+  }
+}

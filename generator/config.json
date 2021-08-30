@@ -1,0 +1,33 @@
+{
+  "basePath": "/Users/yz/Playground/ntf-image-generator/generator/images/",
+  "outputPath": "/Users/yz/Playground/ntf-image-generator/generator/nft_images/",
+  "deleteDuplicates": {"checkDuplicates": true},
+  "generateMetadata": {"createMetadata": true},
+  "metaData": {
+    "metadataName": "cool",
+    "metadataDescription": "test in meta",
+    "metadataImageUrl": "domain-name.com/path/your/image/",
+    "splitFiles": false
+  },
+  "imageUrl": null,
+  "order": [],
+  "names": {},
+  "weights": {
+    "Background.png": "50",
+    "BlackFace-1.png": "10",
+    "BlackFace-2.png": "10",
+    "BlackFace-3.png": "10",
+    "GreenFace-1.png": "10",
+    "GreenFace-2.png": "10",
+    "Glasses-04.png": "15",
+    "Glasses-1.png": "15",
+    "Glasses-2.png": "10",
+    "Glasses-3.png": "10",
+    "Hat-002.png": "10",
+    "Hat-01.png": "10",
+    "Hat-03.png": "5",
+    "Hat-04.png": "25",
+    "Mask-005.png": "1",
+    "Mask-05.png": "49"
+  }
+}
