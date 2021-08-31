@@ -3,100 +3,160 @@ const myArgs = process.argv.slice(2);
 const { createCanvas, loadImage } = require("canvas");
 const { layers, width, height } = require("./input/config.js");
 const console = require("console");
-const { randomInt } = require("crypto");
 const canvas = createCanvas(width, height);
 const ctx = canvas.getContext("2d");
 const editionSize = myArgs.length > 0 ? Number(myArgs[0]) : 1;
-var metadata = [];
-var attributes = [];
-var hash = [];
-var decodedHash = [];
+const QUIT_LOOP = 50;
+var metadataList = [];
+var attributesList = [];
 let dnaList = [];
 
-const saveLayer = (_canvas, _edition) => {
-  fs.writeFileSync(`./output/${_edition}.png`, _canvas.toBuffer("image/png"));
+const saveImage = (_editionCount) => {
+  fs.writeFileSync(
+    `./output/${_editionCount}.png`,
+    canvas.toBuffer("image/png")
+  );
 };
 
-const addMetadata = (_edition) => {
+const signImage = (_sign) => {
+  ctx.fileStyle = "#000000";
+  ctx.font = "Bold 30pt Courier";
+  ctx.textBaseline = "top";
+  ctx.textAlign = "left";
+  ctx.fillText(_sign, 40, 40);
+};
+
+const genColor = () => {
+  let hue = Math.floor(Math.random() * 360);
+  let pastel = `hsl(${hue}, 100%, 85%)`;
+  return pastel;
+};
+
+const drawBackground = () => {
+  ctx.fillStyle = genColor();
+  ctx.fillRect(0, 0, width, height);
+};
+
+const addMetadata = (_dna, _edition) => {
   let dateTime = Date.now();
   let tempMetadata = {
-    hash: hash.join(""),
-    decodedHash: decodedHash,
+    dna: _dna.join(""),
     edition: _edition,
     date: dateTime,
-    attributes: attributes,
+    attributes: attributesList,
   };
-  metadata.push(tempMetadata);
-  attributes = [];
-  hash = [];
-  decodedHash = [];
+  metadataList.push(tempMetadata);
+  attributesList = [];
 };
 
-const addAttributes = (_element, _layer) => {
-  let tempAttr = {
-    id: _element.id,
-    layer: _layer.name,
-    name: _element.name,
-    rarity: _element.rarity,
-  };
-  attributes.push(tempAttr);
-  hash.push(_layer.id);
-  hash.push(_element.id);
-  decodedHash.push({ [_layer.id]: _element.id });
+const addAttributes = (_element) => {
+  let selectedElement = _element.layer.selectedElement;
+  attributesList.push({
+    name: selectedElement.name,
+    rarity: selectedElement.rarity,
+  });
 };
 
-const drawLayer = async (_layer, _edition) => {
-  let element =
-    _layer.elements[Math.floor(Math.random() * _layer.elements.length)];
-  addAttributes(element, _layer);
-  const image = await loadImage(`${_layer.location}${element.fileName}`);
+const loadLayerImg = async (_layer) => {
+  return new Promise(async (resolve) => {
+    const image = await loadImage(
+      `${_layer.location}${_layer.selectedElement.fileName}`
+    );
+    resolve({ layer: _layer, loadedImage: image });
+  });
+};
+
+const drawElement = (_element) => {
   ctx.drawImage(
-    image,
-    _layer.position.x,
-    _layer.position.y,
-    _layer.size.width,
-    _layer.size.height
+    _element.loadedImage,
+    _element.layer.position.x,
+    _element.layer.position.y,
+    _element.layer.size.width,
+    _element.layer.size.height
   );
-  saveLayer(canvas, _edition);
+  addAttributes(_element);
 };
 
-const isDnaUnique = (_DnaList = [], _dna) => {
-  let foundDna = _DnaList.find((i) => i === _dna);
+const constructLayerToDna = (_dna = [], _layers = []) => {
+  // let DnaSegment = _dna.toString().match(/.{1,2}/g);
+
+  let mappedDnaToLayers = _layers.map((layer, index) => {
+    const selectedElement = layer.elements[_dna[index]];
+
+    return {
+      location: layer.location,
+      position: layer.position,
+      size: layer.size,
+      selectedElement: selectedElement,
+    };
+  });
+  return mappedDnaToLayers;
+};
+
+const isDnaUnique = (_DnaList = [], _dna = []) => {
+  let foundDna = _DnaList.find((i) => i.join("") === _dna.join(""));
   return foundDna === undefined ? true : false;
-}
-
-const createDna = (_len) => {
-  let ranNum = Math.floor(
-    Number(`1e${_len}`) + Math.random() * Number(`9e${_len}`)
-  );
-  return ranNum;
 };
 
-const writeMetaData = () => {
-  fs.writeFileSync("./output/_metadata.json", JSON.stringify(metadata));
+const createDna = (_layers) => {
+  let randNum = [];
+  _layers.forEach((layer) => {
+    let num = Math.floor(Math.random() * layer.elements.length);
+    randNum.push(num);
+  });
+  return randNum;
 };
 
-const startCreating = () => {
+const writeMetaData = (_data) => {
+  fs.writeFileSync("./output/_metadata.json", _data);
+};
+
+const startCreating = async () => {
+  // reset metaData
+  writeMetaData("");
   let editionCount = 1;
+  let duplicatedCount = 0;
+
   while (editionCount <= editionSize) {
+    const newDna = createDna(layers);
 
-    let newDna = createDna(layers.length * 2 - 1);
-    console.log(`Random ${newDna}`);
     if (isDnaUnique(dnaList, newDna)) {
+      const results = constructLayerToDna(newDna, layers);
+      const loadedElements = []; // Promises
 
-      // layers.forEach((layer) => {
-      //   drawLayer(layer, i);
-      // });
-      // addMetadata(i);
-      // console.log("Creating editionSize " + i);
+      console.log(dnaList);
+      results.forEach((layer) => {
+        loadedElements.push(loadLayerImg(layer)); // return promise
+      });
+      await Promise.all(loadedElements).then((elementArray) => {
+        // clear background
+        // ctx.clearRect(0, 0, width,height)
+        // drawBackground();
+
+        elementArray.forEach((element) => {
+          drawElement(element);
+        });
+
+        // signImage(`${editionCount}`);
+
+        saveImage(editionCount);
+        addMetadata(newDna, editionCount);
+        console.log(`Created editotion : ${editionCount} with DNA: ${newDna}`);
+      });
+
       dnaList.push(newDna);
-      console.log(dnaList)
       editionCount++;
     } else {
-      console.log("DNA Exists!")
+      duplicatedCount++
+      console.log("Image Exists!");
+      if(QUIT_LOOP === duplicatedCount) {
+        console.log("Quit loop and generating meta");
+        break;
+      }
     }
   }
+
+  writeMetaData(JSON.stringify(metadataList));
 };
 
 startCreating();
-writeMetaData();
