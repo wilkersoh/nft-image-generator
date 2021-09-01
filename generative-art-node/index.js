@@ -1,11 +1,19 @@
 const fs = require("fs");
-const myArgs = process.argv.slice(2);
 const { createCanvas, loadImage } = require("canvas");
-const { layers, width, height } = require("./input-ref/config.js");
+const {
+  layers,
+  width,
+  height,
+  description,
+  baseImageUri,
+  editionSize,
+  startEditionFrom,
+  endEditionAt,
+  rarityWeights,
+} = require("./input/config.js");
 const console = require("console");
 const canvas = createCanvas(width, height);
 const ctx = canvas.getContext("2d");
-const editionSize = myArgs.length > 0 ? Number(myArgs[0]) : 1;
 const QUIT_LOOP = 50;
 var metadataList = [];
 var attributesList = [];
@@ -41,6 +49,9 @@ const addMetadata = (_dna, _edition) => {
   let dateTime = Date.now();
   let tempMetadata = {
     dna: _dna.join(""),
+    name: `#${_edition}`,
+    description: description,
+    image: `${baseImageUri}/${_edition}`,
     edition: _edition,
     date: dateTime,
     attributes: attributesList,
@@ -60,7 +71,7 @@ const addAttributes = (_element) => {
 const loadLayerImg = async (_layer) => {
   return new Promise(async (resolve) => {
     const image = await loadImage(
-      `${_layer.location}${_layer.selectedElement.fileName}`
+      `${_layer.selectedElement.path}`
     );
     resolve({ layer: _layer, loadedImage: image });
   });
@@ -77,11 +88,11 @@ const drawElement = (_element) => {
   addAttributes(_element);
 };
 
-const constructLayerToDna = (_dna = [], _layers = []) => {
+const constructLayerToDna = (_dna = [], _layers = [], _rarity) => {
   // let DnaSegment = _dna.toString().match(/.{1,2}/g);
 
   let mappedDnaToLayers = _layers.map((layer, index) => {
-    const selectedElement = layer.elements[_dna[index]];
+    const selectedElement = layer.elements[_rarity][_dna[index]];
 
     return {
       location: layer.location,
@@ -93,15 +104,43 @@ const constructLayerToDna = (_dna = [], _layers = []) => {
   return mappedDnaToLayers;
 };
 
+const getRarity = (_editionCount) => {
+  let rarity = "";
+  rarityWeights.forEach(rarityWeight => {
+    /**
+     * _editionCount between from and to value
+     * eg:
+     * _editionCount = 1
+     * rarityWeight.from = 1
+     * rarityWeight.to = 1
+     * then true only once
+     * it is equal than 1 from "from"
+     *
+     * _editionCount = 2
+     * rarityWeight.from = 2
+     * rarityWeight.to = 5
+     * then true, three times
+     * it is equal than 2 from "from" and until before 5
+     */
+    if (
+      _editionCount >= rarityWeight.from &&
+      _editionCount <= rarityWeight.to
+    ) {
+      rarity = rarityWeight.value;
+    }
+  })
+  return rarity;
+}
+
 const isDnaUnique = (_DnaList = [], _dna = []) => {
   let foundDna = _DnaList.find((i) => i.join("") === _dna.join(""));
   return foundDna === undefined ? true : false;
 };
 
-const createDna = (_layers) => {
+const createDna = (_layers, _rarity) => {
   let randNum = [];
   _layers.forEach((layer) => {
-    let num = Math.floor(Math.random() * layer.elements.length);
+    let num = Math.floor(Math.random() * layer.elements[_rarity].length);
     randNum.push(num);
   });
   return randNum;
@@ -112,16 +151,18 @@ const writeMetaData = (_data) => {
 };
 
 const startCreating = async () => {
+  console.log("Start!")
   // reset metaData
   writeMetaData("");
-  let editionCount = 1;
+  let editionCount = startEditionFrom;
   let duplicatedCount = 0;
 
-  while (editionCount <= editionSize) {
-    const newDna = createDna(layers);
-
+  while (editionCount <= endEditionAt) {
+    const rarity = getRarity(editionCount);
+    const newDna = createDna(layers, rarity);
+    // console.log(`rarity::: `, rarity)
     if (isDnaUnique(dnaList, newDna)) {
-      const results = constructLayerToDna(newDna, layers);
+      const results = constructLayerToDna(newDna, layers, rarity);
       const loadedElements = []; // Promises
 
       console.log(dnaList);
@@ -149,10 +190,10 @@ const startCreating = async () => {
     } else {
       duplicatedCount++
       console.log("Image Exists!");
-      if(QUIT_LOOP === duplicatedCount) {
-        console.log("Quit loop and generating meta");
-        break;
-      }
+      // if(QUIT_LOOP === duplicatedCount) {
+      //   console.log("Quit loop and generating meta");
+      //   break;
+      // }
     }
   }
 
