@@ -6,7 +6,6 @@ const {
   height,
   description,
   baseImageUri,
-  editionSize,
   startEditionFrom,
   endEditionAt,
   rarityWeights,
