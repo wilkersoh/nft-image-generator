@@ -88,11 +88,9 @@ const drawElement = (_element) => {
 } ;
 
 const constructLayerToDna = (_dna = [], _races = [], _race) => {
-  // let DnaSegment = _dna.toString().match(/.{1,2}/g);
   let mappedDnaToLayers = _races[_race].layers.map((layer, index) => {
 
     const selectedElement = layer.elements.find(e => e.id == _dna[index]);
-
     return {
       name: layer.name,
       position: layer.position,
@@ -106,21 +104,6 @@ const constructLayerToDna = (_dna = [], _races = [], _race) => {
 const getRace = (_editionCount) => {
   let race = "";
   raceWeights.forEach(raceWeights => {
-    /**
-     * _editionCount between from and to value
-     * eg:
-     * _editionCount = 1
-     * raceWeights.from = 1
-     * raceWeights.to = 1
-     * then true only once
-     * it is equal than 1 from "from"
-     *
-     * _editionCount = 2
-     * raceWeights.from = 2
-     * raceWeights.to = 5
-     * then true, three times
-     * it is equal than 2 from "from" and until before 5
-     */
     if (
       _editionCount >= raceWeights.from &&
       _editionCount <= raceWeights.to
@@ -138,6 +121,7 @@ const isDnaUnique = (_DnaList = [], _dna = []) => {
 
 const createDna = (_races, _race) => {
   let randNum = [];
+
   _races[_race].layers.forEach((layer) => {
     let randElementNum = Math.floor(Math.random() * 100);
     let num = 0;
@@ -166,20 +150,19 @@ const startCreating = async () => {
   let duplicatedCount = 0;
 
   while (editionCount <= endEditionAt) {
+
     const race = getRace(editionCount);
     const newDna = createDna(races, race);
 
     if (isDnaUnique(dnaList, newDna)) {
       const results = constructLayerToDna(newDna, races, race);
+
       const loadedElements = []; // Promises
 
       results.forEach((layer) => {
         loadedElements.push(loadLayerImg(layer)); // return promise
       });
       await Promise.all(loadedElements).then((elementArray) => {
-        // clear background
-        // ctx.clearRect(0, 0, width,height)
-        // drawBackground();
 
         elementArray.forEach((element) => {
           drawElement(element);
@@ -189,7 +172,7 @@ const startCreating = async () => {
 
         saveImage(editionCount);
         addMetadata(newDna, editionCount);
-        console.log(`Created editotion : ${editionCount} ${race} with DNA: ${newDna}`);
+        console.log(`Created #${editionCount} ${race} with ID: ${newDna}`);
       });
 
       dnaList.push(newDna);
